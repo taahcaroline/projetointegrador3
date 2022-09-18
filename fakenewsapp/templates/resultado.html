@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+    
+       <h5>Notícia</h5>
+    <hr><table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Notícia</th>
+                <th>Link</th>
+               
+
+                
+                
+            </tr></thead>
+            <tbody>
+                {% for noticiascad in resultado %}
+                <tr>
+                    <td>{{noticiascad.id}}</td>
+                    <td>{{noticiascad.titulo}}</td>
+                    <td>{{noticiascad.linknews}}</td>
+                </tr> 
+                    <td colspan="3"><div class="alert alert-secondary" role="alert">
+                       Esta notícia é {{noticiascad.autenticidade}}
+                      </div></td>
+                    {% endfor %}
+                  
+                   
+                </tbody></table></div></div>
+{% endblock %}
