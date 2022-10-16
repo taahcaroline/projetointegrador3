@@ -10,7 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Notícia</th>
-                <th>Link</th>
+            
                
 
                 
@@ -21,11 +21,20 @@
                 <tr>
                     <td>{{noticiascad.id}}</td>
                     <td>{{noticiascad.titulo}}</td>
-                    <td>{{noticiascad.linknews}}</td>
+                    
                 </tr> 
-                    <td colspan="3"><div class="alert alert-secondary" role="alert">
-                       Esta notícia é {{noticiascad.autenticidade}}
+                {% if noticiascad.autenticidade == True %}
+                    <td colspan="2"><div class="alert alert-success" role="alert">
+                       Esta notícia é verdadeira. Confira em: {{noticiascad.linknews}}
                       </div></td>
+                      {%endif%}
+
+                      {%if noticiascad.autenticidade == False %}
+                    <td colspan="2"><div class="alert alert-danger" role="alert">
+                       Esta notícia é falsa. Confira em: {{noticiascad.linknews}}
+                      </div></td>
+                      {%endif%}
+
                     {% endfor %}
                   
                    
